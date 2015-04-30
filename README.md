@@ -1,6 +1,6 @@
 
 # XL Deploy Server 4.5.x
-	
+[![Build Status](https://travis-ci.org/electric-it/xldeploy.svg?branch=develop)](https://travis-ci.org/electric-it/xldeploy)
 
 ## XebiaLabs home page and Admin manual
 [xebialabs.com](https://xebialabs.com)
