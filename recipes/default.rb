@@ -30,11 +30,17 @@ end
 execute "wget xldeploy installation archive" do
   command "wget -P #{node['xldeploy']['installdir']} --user=#{node['xldeploy']['username']} --password=#{node['xldeploy']['password']} #{node['xldeploy']['downloadurl']}"
 end
+
+# install unzip program
+package "unzip" do
+  action :install
+end
+
 # ==========================================
 # xldeploy
 # ==========================================
 execute "unzip installation archive" do
-  command "unzip /opt/#{node['xldeploy']['filename']} -d /opt"
+  command "unzip #{node['xldeploy']['installdir']}/#{node['xldeploy']['filename']} -d #{node['xldeploy']['installdir']}"
 end
 
 # ==================================================
@@ -54,18 +60,18 @@ template "setup-config" do
   group   node['xldeploy']['group']
   mode    "0600"
     variables(
-    :adminpassword  => "#{node['xldeploy']['adminpassword']}",
-    :repository  => "#{node['xldeploy']['repository']}",
-    :threads  => "#{node['xldeploy']['threads']}",
-    :ssl  => "#{node['xldeploy']['ssl']}",
-    :csre  => "#{node['xldeploy']['csre']}",
-    :http_bind  =>"#{node['xldeploy']['http_bind']}",
-    :http_context_root  => "#{node['xldeploy']['http_context_root']}",
-    :threads_max  => "#{node['xldeploy']['threads_max']}",
-    :cstm => "#{node['xldeploy']['cstm']}",
-    :hide_internals => "#{node['xldeploy']['hide_internals']}",
-    :import_packages => "#{node['xldeploy']['import_packages']}",
-    :port => "#{node['xldeploy']['port']}"
+    :adminpassword  => node['xldeploy']['adminpassword'],
+    :repository  => node['xldeploy']['repository'],
+    :threads  => node['xldeploy']['threads'],
+    :ssl  => node['xldeploy']['ssl'],
+    :csre  => node['xldeploy']['csre'],
+    :http_bind  => node['xldeploy']['http_bind'],
+    :http_context_root  => node['xldeploy']['http_context_root'],
+    :threads_max  => node['xldeploy']['threads_max'],
+    :cstm => node['xldeploy']['cstm'],
+    :hide_internals => node['xldeploy']['hide_internals'],
+    :import_packages => node['xldeploy']['import_packages'],
+    :port => node['xldeploy']['port']
     )
   notifies :run, 'execute[install-xldeploy]', :immediately
 end
