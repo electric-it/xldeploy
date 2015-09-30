@@ -2,7 +2,7 @@
 
 set -o errexit
 
-: ${COOKBOOK_PATH:=cookbooks}
+: ${COOKBOOK_PATH:=.}
 
 unset GEM_PATH
 
