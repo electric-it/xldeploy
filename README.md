@@ -1,6 +1,6 @@
 
-# XL Deploy Server 4.5.x
-	
+# XL Deploy Server
+[![Build Status](https://travis-ci.org/electric-it/xldeploy.svg?branch=master)](https://travis-ci.org/electric-it/xldeploy)
 
 ## XebiaLabs home page and Admin manual
 [xebialabs.com](https://xebialabs.com)
@@ -8,7 +8,6 @@
 [docs.xebialabs.com/xl-deploy/4.5.x/systemadminmanual.html](https://docs.xebialabs.com/xl-deploy/4.5.x/systemadminmanual.html)
 
 ## Description
-
 XL Deploy is the only application release automation solution that is agentless across all target platforms. Connect to Windows and Unix target systems using proven, industry-standard remote protocols; no agent installation and maintenance, no overhead on the target systems, no firewall ports to be opened, and no security reviews.
 
 ## Server requirements
@@ -41,7 +40,7 @@ Set attribute default['xldeploy']['password'] = 'supplied by xebialabs'
 7. Kick off xldeploy installation program (server.sh included in installation archive).
 8. Configure xldeploy as a service (runit).
 
-##Post Installation
+## Post Installation
 Add the license file to your installation directory ~/conf directory and restart XLDeploy service
 
 ```sv down xldeploy; sv up xldeploy```
