@@ -1,16 +1,9 @@
-language: generic
-
+language: ruby
+cache: bundler
 sudo: false
 
-env:
-  global:
-  - PATH="/opt/chefdk/bin:/opt/chef/bin:/opt/chef/embedded/bin:/opt/chefdk/embedded/bin:$PATH"
+script: "gem install foodcritic && foodcritic -f any ."
 
-addons:
-  apt:
-    sources:
-    - chef-stable-precise
-    packages:
-    - chefdk
-
-script: ./runtests
+rvm:
+- 2.2.1
+- 2.1.5
