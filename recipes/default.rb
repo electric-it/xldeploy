@@ -42,7 +42,7 @@ end
 # ==================================================
 execute "update ownership" do
   command "chown -R xldeploy:xldeploy #{node['xldeploy']['home']}"
-end 
+end
 
 # ==================================================
 # Create the input file for the installer
@@ -54,18 +54,18 @@ template "setup-config" do
   group   node['xldeploy']['group']
   mode    "0600"
     variables(
-    :adminpassword  => "#{node['xldeploy']['adminpassword']}",
-    :repository  => "#{node['xldeploy']['repository']}",
-    :threads  => "#{node['xldeploy']['threads']}",
-    :ssl  => "#{node['xldeploy']['ssl']}",
-    :csre  => "#{node['xldeploy']['csre']}",
-    :http_bind  =>"#{node['xldeploy']['http_bind']}",
-    :http_context_root  => "#{node['xldeploy']['http_context_root']}",
-    :threads_max  => "#{node['xldeploy']['threads_max']}",
-    :cstm => "#{node['xldeploy']['cstm']}",
-    :hide_internals => "#{node['xldeploy']['hide_internals']}",
-    :import_packages => "#{node['xldeploy']['import_packages']}",
-    :port => "#{node['xldeploy']['port']}"
+    :adminpassword => node['xldeploy']['adminpassword'],
+    :repository => node['xldeploy']['repository'],
+    :threads => node['xldeploy']['threads'],
+    :ssl => node['xldeploy']['ssl'],
+    :csre => node['xldeploy']['csre'],
+    :http_bind => node['xldeploy']['http_bind'],
+    :http_context_root => node['xldeploy']['http_context_root'],
+    :threads_max => node['xldeploy']['threads_max'],
+    :cstm => node['xldeploy']['cstm'],
+    :hide_internals => node['xldeploy']['hide_internals'],
+    :import_packages => node['xldeploy']['import_packages'],
+    :port => node['xldeploy']['port']
     )
   notifies :run, 'execute[install-xldeploy]', :immediately
 end
