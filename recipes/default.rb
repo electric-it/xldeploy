@@ -28,7 +28,7 @@ end
 # Download XL Deploy install zip
 # ==================================================
 remote_file "#{node['xldeploy']['installdir']}/#{node['xldeploy']['filename']}" do
-  source "#{node['xldeploy']['downloadurl']}"
+  source node['xldeploy']['downloadurl']
 end
 
 # install unzip program
