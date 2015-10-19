@@ -24,11 +24,11 @@ user "xldeploy" do
   shell     "/bin/false"
 end
 
-# ==========================================
-# wget installation archive
-# ==========================================
-execute "wget xldeploy installation archive" do
-  command "wget -P #{node['xldeploy']['installdir']} --user=#{node['xldeploy']['username']} --password=#{node['xldeploy']['password']} #{node['xldeploy']['downloadurl']}"
+# ==================================================
+# Download XL Deploy install zip
+# ==================================================
+remote_file "#{node['xldeploy']['installdir']}/#{node['xldeploy']['filename']}" do
+  source "#{node['xldeploy']['downloadurl']}"
 end
 
 # install unzip program
