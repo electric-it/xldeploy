@@ -1,7 +1,7 @@
 # ==================================================
 # XL Deploy version to install
 # ==================================================
-default['xldeploy']['version'] = '4.5.2'
+default['xldeploy']['version'] = '5.0.4'
 
 # ==================================================
 # Home directory for XL Deploy
