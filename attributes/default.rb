@@ -1,7 +1,7 @@
 # ==================================================
 # XL Deploy version to install
 # ==================================================
-default['xldeploy']['version'] = '4.5.2'
+default['xldeploy']['version'] = '5.0.4'
 
 # ==================================================
 # Home directory for XL Deploy
@@ -34,4 +34,4 @@ default['xldeploy']['port'] = '4516'
 default['xldeploy']['filename'] = "xl-deploy-#{node['xldeploy']['version']}-server.zip"
 default['xldeploy']['username'] = 'supplied by xebialabs'
 default['xldeploy']['password'] = 'supplied by xebialabs'
-default['xldeploy']['downloadurl'] = "https://dist.xebialabs.com/xl-deploy/4.5.2/#{node['xldeploy']['filename']}"
+default['xldeploy']['downloadurl'] = "https://#{node['xldeploy']['username']}:#{node['xldeploy']['password']}@dist.xebialabs.com/xl-deploy/#{node['xldeploy']['version']}/#{node['xldeploy']['filename']}"
