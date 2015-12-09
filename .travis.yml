@@ -1,18 +1,14 @@
 language: ruby
-#cache: bundler
-
 sudo: false
-
 rvm:
-  - 2.2.1
-
-# Run Foodcritic to check cookbook
+- 2.2.1
 script:
-  - bundle exec foodcritic .
-
-# Decrypt the Supermarket client key and push to the Supermarket
+- bundle exec foodcritic .
 after_success:
-  - openssl aes-256-cbc -K $encrypted_d4c67d5078bb_key -iv $encrypted_d4c67d5078bb_iv
-    -in .travis/chef-io-private.pem.enc -out ~/chef-io-private.pem -d
-  - bundle exec stove login --username berniedurfee-ge --key ~/chef-io-private.pem
-  - rake publish
+- openssl aes-256-cbc -K $encrypted_d4c67d5078bb_key -iv $encrypted_d4c67d5078bb_iv
+  -in .travis/chef-io-private.pem.enc -out ~/chef-io-private.pem -d
+- bundle exec stove login --username berniedurfee-ge --key ~/chef-io-private.pem
+- rake publish
+before_install:
+- openssl aes-256-cbc -K $encrypted_d4c67d5078bb_key -iv $encrypted_d4c67d5078bb_iv
+  -in chef-io-private.pem.enc -out ~\/Documents/Keys/chef-io-private.pem -d
