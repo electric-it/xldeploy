@@ -1,5 +1,6 @@
 language: ruby
 cache: bundler
+
 sudo: false
 
 rvm:
@@ -8,7 +9,7 @@ rvm:
 
 # Run Foodcritic to check cookbook
 script:
-  - gem install foodcritic && foodcritic -f any .
+  - foodcritic .
 
 # Decrypt the Supermarket client key and push to the Supermarket
 after_success:
