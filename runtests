@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-
-set -o errexit
-
-unset GEM_PATH
-
-cd "$(dirname ${BASH_SOURCE[0]})"
-
-./run-foodcritic .
