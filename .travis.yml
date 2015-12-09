@@ -9,6 +9,3 @@ after_success:
   -in .travis/chef-io-private.pem.enc -out ~/chef-io-private.pem -d
 - bundle exec stove login --username berniedurfee-ge --key ~/chef-io-private.pem
 - rake publish
-before_install:
-- openssl aes-256-cbc -K $encrypted_d4c67d5078bb_key -iv $encrypted_d4c67d5078bb_iv
-  -in chef-io-private.pem.enc -out ~\/Documents/Keys/chef-io-private.pem -d
