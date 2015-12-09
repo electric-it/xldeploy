@@ -1,5 +1,5 @@
 name    'xldeploy'
-version '0.1.2'
+version '0.1.3'
 
 depends 'runit',  '= 1.5.10'
 depends 'java',   '= 1.25.0'
