@@ -2,11 +2,11 @@ language: ruby
 sudo: false
 
 script:
-- rake foodcritic
+- bundle exec rake foodcritic
 
 after_success:
 - openssl aes-256-cbc -K $encrypted_d4c67d5078bb_key -iv $encrypted_d4c67d5078bb_iv
   -in .travis/chef-io-private.pem.enc -out ~/chef-io-private.pem -d
 - bundle exec stove login --username berniedurfee-ge --key ~/chef-io-private.pem
 - git status
-- rake publish
+- bundle exec rake publish
