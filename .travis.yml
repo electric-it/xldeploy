@@ -1,10 +1,9 @@
 language: ruby
-cache: bundler
+#cache: bundler
 
 sudo: false
 
 rvm:
-  - 2.1.5
   - 2.2.1
 
 # Run Foodcritic to check cookbook
