@@ -95,3 +95,8 @@ Vagrantfile
 ##########
 .travis.yml
 .travis
+
+# Bundler #
+###########
+.bundle
+vendor
