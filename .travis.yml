@@ -2,8 +2,16 @@ language: ruby
 cache: bundler
 sudo: false
 
-script: "gem install foodcritic && foodcritic -f any ."
-
 rvm:
-- 2.2.1
-- 2.1.5
+  - 2.1.5
+  - 2.2.1
+
+# Run Foodcritic to check cookbook
+script:
+  - gem install foodcritic && foodcritic -f any .
+
+# Decrypt the Supermarket client key and push to the Supermarket
+after_success:
+  - openssl aes-256-cbc -K $encrypted_d4c67d5078bb_key -iv $encrypted_d4c67d5078bb_iv
+    -in chef-io-private.pem.enc -out .travis/chef-io-private.pem -d
+  - dpl --provider=chef-supermarket --user-id=berniedurfee-ge --client-key=.travis/chef-io-private.pem --cookbook-category=Others
