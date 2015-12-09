@@ -3,7 +3,8 @@ sudo: false
 rvm:
 - 2.2.1
 script:
-- bundle exec foodcritic .
+- rake foodcritic
+
 after_success:
 - openssl aes-256-cbc -K $encrypted_d4c67d5078bb_key -iv $encrypted_d4c67d5078bb_iv
   -in .travis/chef-io-private.pem.enc -out ~/chef-io-private.pem -d
