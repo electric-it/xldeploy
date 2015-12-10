@@ -1,5 +1,5 @@
 name    'xldeploy'
-version '1.0.0'
+version '1.0.1'
 
 description 'Installs and configures XL Deploy from XebiaLabs'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
