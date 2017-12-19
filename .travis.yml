@@ -1,3 +1,14 @@
 language: ruby
 cache: bundler
 sudo: false
+
+before_deploy:
+- openssl aes-256-cbc -K $encrypted_24c8a3517e4c_key -iv $encrypted_24c8a3517e4c_iv
+  -in berniedurfee-ge.txt -out berniedurfee-ge.pem -d
+
+deploy:
+  skip_cleanup: true
+  provider: chef-supermarket
+  user_id: berniedurfee-ge
+  client_key: /berniedurfee-ge.pem
+  cookbook_category: Other
